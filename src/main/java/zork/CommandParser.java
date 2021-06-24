@@ -12,6 +12,7 @@ public class CommandParser {
     private List<String> allCommmandsSortedByLength = new ArrayList<>();
     {
         allCommmandsSortedByLength.addAll(CommandFactory.getAllCommands());
+        System.out.println(allCommmandsSortedByLength);
         allCommmandsSortedByLength.sort((o1, o2) -> o2.length() - o1.length());
     }
 

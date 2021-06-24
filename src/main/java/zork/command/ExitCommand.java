@@ -4,7 +4,14 @@ import zork.Game;
 
 import java.util.List;
 
-public class ExitCommand implements Command{
+public class ExitCommand implements Command {
+
+    @Override
+    public void description() {
+        System.out.println("Input usage: > exit");
+        System.out.println("Description: Exits the game.");
+        System.out.println();
+    }
 
     @Override
     public void execute(Game game, List<String> args) {
