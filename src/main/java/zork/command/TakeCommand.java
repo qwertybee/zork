@@ -15,7 +15,7 @@ public class TakeCommand implements Command {
 
     @Override
     public void execute(Game game, List<String> args) {
-
+        game.getPlayer().
     }
 
     @Override
@@ -25,6 +25,6 @@ public class TakeCommand implements Command {
 
     @Override
     public int numArgs() {
-        return 0;
+        return 1;
     }
 }

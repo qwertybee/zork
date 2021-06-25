@@ -25,6 +25,6 @@ public class DropCommand implements Command {
 
     @Override
     public int numArgs() {
-        return 0;
+        return 1;
     }
 }

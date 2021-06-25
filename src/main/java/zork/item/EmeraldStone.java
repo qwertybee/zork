@@ -6,7 +6,7 @@ public class EmeraldStone extends Item {
         super.name = "Emerald Stone";
         super.type = "Stone";
         super.usage = "Place";
-        super.description = "A green emerald with grassy hue";
+        super.description = "A green emerald with foresty hue";
     }
 
 }

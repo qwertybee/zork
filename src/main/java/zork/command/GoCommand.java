@@ -1,10 +1,18 @@
 package zork.command;
 
 import zork.Game;
+import zork.area.Area;
+import zork.character.CreateMonster;
+import zork.character.Monster;
+import zork.character.Mummy;
 
 import java.util.List;
+import java.util.Random;
 
 public class GoCommand implements Command {
+
+    private final Random RANDOM = new Random();
+
     @Override
     public void description() {
         System.out.println("Input usage: > go [insert direction]");
@@ -14,7 +22,34 @@ public class GoCommand implements Command {
 
     @Override
     public void execute(Game game, List<String> args) {
-
+        String direction = args.get(0);
+        boolean containDirection = game.getCurrentArea().hasNeighbor(direction);
+        if (containDirection) {
+            String newArea = game.getCurrentArea().getNeighbors().get(direction);
+            Area newAreaReference = game.getCreateAreas().getAreaNeighbors().get(newArea);
+            switch (direction) {
+                case "north":
+                    game.setCurrentArea(newAreaReference);
+                    break;
+                case "south":
+                    game.setCurrentArea(newAreaReference);
+                    break;
+                case "east":
+                    game.setCurrentArea(newAreaReference);
+                    break;
+                case "west":
+                    game.setCurrentArea(newAreaReference);
+                    break;
+            }
+            Monster randomMonster = CreateMonster.createMonster(RANDOM.nextFloat());
+            newAreaReference.spawnMonster(randomMonster);
+        }
+        else {
+            System.out.println();
+            System.out.println("'go' where? Please insert available directions.");
+            System.out.println("Type 'help' for commands and its usage.");
+            System.out.println();
+        }
     }
 
     @Override
@@ -24,6 +59,6 @@ public class GoCommand implements Command {
 
     @Override
     public int numArgs() {
-        return 0;
+        return 1;
     }
 }

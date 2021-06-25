@@ -1,6 +1,6 @@
 package zork.character;
 
-public class Mummy extends Monster{
+public class Mummy extends Monster {
 
     public Mummy() {
         super.maxHealthPoints = 30;
