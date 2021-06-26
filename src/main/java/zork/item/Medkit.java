@@ -1,10 +1,10 @@
 package zork.item;
 
-public class ProteinBar extends Item {
+public class Medkit extends Item {
 
     public int heal = 100;
 
-    public ProteinBar() {
+    public Medkit() {
         super.name = "Protein Bar";
         super.type = "Edible";
         super.usage = "Eat";

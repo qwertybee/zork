@@ -5,6 +5,7 @@ import zork.area.CreateAreas;
 import zork.character.CreateMonster;
 import zork.character.Player;
 import zork.command.Command;
+import zork.item.CreateStone;
 
 import java.util.List;
 import java.util.Scanner;
@@ -18,17 +19,20 @@ public class Game {
     private final Player player = new Player();
     private final CreateAreas createAreas = new CreateAreas();
     private final CreateMonster createMonster  = new CreateMonster();
+    private final CreateStone createStone = new CreateStone();
 
     public void run() {
         output.printWelcome();
         currentArea = createAreas.getAreaNeighbors().get("entrance");
         while(true) {
             output.printLocation(this);
+            output.printInventory(this);
+            output.printRoomItems(this);
+            output.printMonster(this);
             System.out.print("> ");
             Scanner in = new Scanner(System.in);
             String s = in.nextLine();
             List<String> words = commandParser.parse(s);
-            System.out.println(words);
             Command command = CommandFactory.get(words.get(0));
             if (command != null) {
                 command.execute(this, words.subList(1, words.size()));
@@ -63,4 +67,9 @@ public class Game {
     public CreateMonster getCreateMonster() {
         return createMonster;
     }
+
+    public CreateStone getCreateStone() {
+        return createStone;
+    }
+
 }

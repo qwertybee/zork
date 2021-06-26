@@ -1,7 +1,9 @@
 package zork.command;
 
 import zork.Game;
+import zork.item.Item;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class TakeCommand implements Command {
@@ -15,7 +17,17 @@ public class TakeCommand implements Command {
 
     @Override
     public void execute(Game game, List<String> args) {
-        game.getPlayer().
+        String itemName = args.get(0);
+        HashMap<String, Item> droppedItems = game.getCurrentArea().getDroppedItems();
+        Item item = droppedItems.get(itemName);
+        if (item != null) {
+            game.getPlayer().getInventory().put(itemName, item);
+            droppedItems.remove(itemName, item);
+            System.out.println(itemName+" taken.");
+        }
+        else {
+            System.out.println("No such item to be taken.");
+        }
     }
 
     @Override

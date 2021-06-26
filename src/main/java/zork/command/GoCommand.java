@@ -11,8 +11,6 @@ import java.util.Random;
 
 public class GoCommand implements Command {
 
-    private final Random RANDOM = new Random();
-
     @Override
     public void description() {
         System.out.println("Input usage: > go [insert direction]");
@@ -41,7 +39,7 @@ public class GoCommand implements Command {
                     game.setCurrentArea(newAreaReference);
                     break;
             }
-            Monster randomMonster = CreateMonster.createMonster(RANDOM.nextFloat());
+            Monster randomMonster = game.getCreateMonster().createMonster(game);
             newAreaReference.spawnMonster(randomMonster);
         }
         else {

@@ -1,15 +1,42 @@
 package zork;
 
+import zork.character.Monster;
+import zork.item.Item;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class GameOutput {
 
     public void println(String message) {
         System.out.println(message);
     }
 
-
     public void printLocation(Game game) {
         System.out.println("You are"+game.getCurrentArea().getDescription());
         System.out.println();
+    }
+
+    public void printInventory(Game game) {
+        System.out.print("Your inventory:");
+        System.out.println(game.getPlayer().getInventory().keySet().stream().collect(Collectors.toList()));
+    }
+
+    public void printRoomItems(Game game) {
+        System.out.print("Items in the area:");
+        System.out.println(game.getCurrentArea().getDroppedItems().keySet().stream().collect(Collectors.toList()));
+    }
+
+    public void printMonster(Game game) {
+        Monster monster = game.getCurrentArea().getMonster();
+        if (monster!=null) {
+            System.out.println("A "+monster.getName()+" is in the area.");
+            System.out.println(monster.getName()+": "+monster.getHealthPoints()+" out of "+monster.getMaxHealthPoints()+" HP.");
+            }
+        else {
+            System.out.println("No monster in the area.");
+        }
     }
 
     public void printWelcome() {
