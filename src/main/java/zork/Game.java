@@ -24,11 +24,12 @@ public class Game {
     public void run() {
         output.printWelcome();
         currentArea = createAreas.getAreaNeighbors().get("entrance");
-        while(true) {
+        while (true) {
             output.printLocation(this);
             output.printInventory(this);
             output.printRoomItems(this);
             output.printMonster(this);
+            output.printAvailableDirections(this);
             System.out.print("> ");
             Scanner in = new Scanner(System.in);
             String s = in.nextLine();
@@ -37,6 +38,7 @@ public class Game {
             if (command != null) {
                 command.execute(this, words.subList(1, words.size()));
             }
+            System.out.println();
         }
     }
 

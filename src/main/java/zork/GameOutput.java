@@ -1,16 +1,18 @@
 package zork;
 
 import zork.character.Monster;
-import zork.item.Item;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class GameOutput {
 
     public void println(String message) {
         System.out.println(message);
+    }
+
+    public void printAvailableDirections(Game game) {
+        System.out.print("Available directions:");
+        System.out.println(game.getCurrentArea().getNeighbors().keySet().stream().collect(Collectors.toList()));
     }
 
     public void printLocation(Game game) {

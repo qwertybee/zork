@@ -19,7 +19,7 @@ public class AttackCommand implements Command {
 
     @Override
     public void execute(Game game, List<String> args) {
-        String weaponKey = args.get(0);
+        String weaponKey = args.get(0).trim().toLowerCase();
         Weapon weapon = (Weapon) game.getPlayer().getInventory().get(weaponKey);
         Monster monster = game.getCurrentArea().getMonster();
         if (weapon!=null) {
@@ -33,10 +33,12 @@ public class AttackCommand implements Command {
                 }
             }
             else {
+                System.out.println();
                 System.out.println("No monster in the area.");
             }
         }
         else {
+            System.out.println();
             System.out.println("'attack with' what? Please insert available weapon.");
             System.out.println("Type 'help' for commands and its usage.");
         }

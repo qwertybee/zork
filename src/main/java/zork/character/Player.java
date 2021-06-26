@@ -19,9 +19,9 @@ public class Player {
         maxHealthPoints = 100;
         name = "Player";
         inventory = new HashMap<>();
-        inventory.put("Gun", new Gun());
-        inventory.put("Knife", new Knife());
-        inventory.put("Medkit", new Medkit());
+        inventory.put("gun", new Gun());
+        inventory.put("knife", new Knife());
+        inventory.put("medkit", new Medkit());
     }
 
     public int getHealthPoints() {

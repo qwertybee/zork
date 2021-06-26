@@ -20,7 +20,7 @@ public class GoCommand implements Command {
 
     @Override
     public void execute(Game game, List<String> args) {
-        String direction = args.get(0);
+        String direction = args.get(0).trim();
         boolean containDirection = game.getCurrentArea().hasNeighbor(direction);
         if (containDirection) {
             String newArea = game.getCurrentArea().getNeighbors().get(direction);
@@ -46,7 +46,6 @@ public class GoCommand implements Command {
             System.out.println();
             System.out.println("'go' where? Please insert available directions.");
             System.out.println("Type 'help' for commands and its usage.");
-            System.out.println();
         }
     }
 

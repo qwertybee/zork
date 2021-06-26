@@ -25,7 +25,7 @@ public class CommandParser {
 
     private String matchInputCommand(String input) {
         List<String> temp = CommandFactory.getAllCommands();
-        for (String command : temp){ //allCommmandsSortedByLength
+        for (String command : temp) {
             if (input.startsWith(command)) {
                 return command;
             }

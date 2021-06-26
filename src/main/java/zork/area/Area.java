@@ -25,7 +25,7 @@ public class Area {
         this.name = name;
         this.description = description;
         this.neighbors = new HashMap<>();
-        droppedItems = new HashMap<>();
+        this.droppedItems = new HashMap<>();
     }
 
     public void setNeighbor(String direction, String neighbor) {

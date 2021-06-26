@@ -17,7 +17,7 @@ public class DropCommand implements Command {
 
     @Override
     public void execute(Game game, List<String> args) {
-        String itemName = args.get(0);
+        String itemName = args.get(0).trim().toLowerCase();
         HashMap<String, Item> inventory = game.getPlayer().getInventory();
         HashMap<String, Item> droppedItems = game.getCurrentArea().getDroppedItems();
         Item item = inventory.get(itemName);
