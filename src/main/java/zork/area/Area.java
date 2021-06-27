@@ -13,6 +13,7 @@ public class Area {
     private final HashMap<String, String> neighbors;
     private Monster monster;
     private HashMap<String, Item> droppedItems;
+    private HashMap<String, Item> stonesOnWall;
 
     public Monster getMonster() {
         return monster;
@@ -27,6 +28,11 @@ public class Area {
         this.description = description;
         this.neighbors = new HashMap<>();
         this.droppedItems = new HashMap<>();
+        this.stonesOnWall = new HashMap<>();
+    }
+
+    public HashMap<String, Item> getStonesOnWall() {
+        return stonesOnWall;
     }
 
     public void setNeighbor(String direction, String neighbor) {

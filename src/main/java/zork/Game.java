@@ -14,6 +14,7 @@ public class Game {
 
     private final GameOutput output = new GameOutput();
     private final CommandParser commandParser = new CommandParser();
+    private long startTime;
 
     private Area currentArea;
     private final Player player = new Player();
@@ -24,6 +25,7 @@ public class Game {
     public void run() {
         output.printWelcome();
         currentArea = createAreas.getAreaNeighbors().get("entrance");
+        startTime = System.currentTimeMillis();
         while (true) {
             output.printLocation(this);
             output.printAvailableDirections(this);
@@ -42,6 +44,10 @@ public class Game {
             }
             System.out.println();
         }
+    }
+
+    public long getStartTime() {
+        return startTime;
     }
 
     public void setCurrentArea(Area newArea) {

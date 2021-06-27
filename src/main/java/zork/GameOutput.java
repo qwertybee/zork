@@ -18,6 +18,13 @@ public class GameOutput {
         System.out.println(player.getHealthPoints()+" out of "+player.getMaxHealthPoints()+" HP.");
     }
 
+    public void printEnding(Game game) {
+        System.out.println();
+        System.out.println("Congratulations you've completed the Valley of the Kings!");
+        int endTime = (int) (System.currentTimeMillis()-game.getStartTime());
+        System.out.println("It took you "+endTime+" to finish the game.");
+    }
+
     public void printAvailableDirections(Game game) {
         System.out.print("Available directions: ");
         System.out.println(game.getCurrentArea().getNeighbors().keySet().stream().collect(Collectors.toList()));
