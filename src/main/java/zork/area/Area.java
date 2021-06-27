@@ -3,6 +3,7 @@ package zork.area;
 import zork.character.Monster;
 import zork.item.Item;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Area {

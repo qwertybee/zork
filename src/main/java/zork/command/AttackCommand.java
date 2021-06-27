@@ -6,7 +6,6 @@ import zork.character.Player;
 import zork.item.Item;
 import zork.item.Weapon;
 
-import java.util.HashMap;
 import java.util.List;
 
 public class AttackCommand implements Command {
@@ -22,14 +21,37 @@ public class AttackCommand implements Command {
         String weaponKey = args.get(0).trim().toLowerCase();
         Weapon weapon = (Weapon) game.getPlayer().getInventory().get(weaponKey);
         Monster monster = game.getCurrentArea().getMonster();
-        if (weapon!=null) {
-            if (monster!=null) {
-                int newHealthPoints = monster.getHealthPoints()+weapon.getDamage();
-                if (newHealthPoints <= 0) {
+        Player player = game.getPlayer();
+        if (weapon != null && (weapon.getRounds() != 0)) {
+            if (monster != null) {
+                int newMonsterHealthPoints = (int) (monster.getHealthPoints() + weapon.getDamage());
+                weapon.decreaseRounds();
+                if (newMonsterHealthPoints <= 0) {
+                    Item stone = game.getCurrentArea().getMonster().getStone();
+                    if (stone != null) {
+                        // if monster have stone, when dead, drop the stone.
+                        String stoneName = stone.getName();
+                        game.getCurrentArea().getDroppedItems().put(stoneName, stone);
+                        System.out.println(stoneName+" dropped.");
+                    }
+                    System.out.println();
+                    System.out.println("Monster killed.");
                     game.getCurrentArea().spawnMonster(null);
                 }
                 else {
-                    monster.setHealthPoints(newHealthPoints);
+                    monster.setHealthPoints(newMonsterHealthPoints);
+                    int newPlayerHealthPoints = (int) (player.getHealthPoints() + monster.getDamage());
+                    if (newPlayerHealthPoints <= 0) {
+                        System.out.println("You were killed by the monster.");
+                        System.out.println("GAME OVER");
+                        game.exit();
+                        System.out.println();
+                    }
+                    else {
+                        player.setHealthPoints(newPlayerHealthPoints);
+                        System.out.println();
+                        System.out.println("Monster attacked you back!");
+                    }
                 }
             }
             else {
@@ -37,9 +59,13 @@ public class AttackCommand implements Command {
                 System.out.println("No monster in the area.");
             }
         }
+        else if (weapon != null && weapon.getRounds() <= 0) {
+            System.out.println();
+            System.out.println("Out of ammo. Attack with other weapon(s)");
+        }
         else {
             System.out.println();
-            System.out.println("'attack with' what? Please insert available weapon.");
+            System.out.println("'attack with' what? Please insert available weapon in inventory.");
             System.out.println("Type 'help' for commands and its usage.");
         }
     }

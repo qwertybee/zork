@@ -1,11 +1,23 @@
 package zork.item;
 
+import java.util.Random;
+
 public class Weapon extends Item{
 
-    public int getDamage() {
-        return damage;
+    protected Random random = new Random();
+    protected int damage;
+    protected Integer rounds;
+
+    public float getDamage() {
+        return damage*random.nextFloat();
     }
 
-    protected int damage;
+    public int getRounds() {
+        return this.rounds;
+    }
+
+    public void decreaseRounds() {
+        this.rounds = this.rounds-1;
+    }
 
 }

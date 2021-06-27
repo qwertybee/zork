@@ -6,8 +6,9 @@ public class Knife extends Weapon{
         super.name = "Knife";
         super.type = "Weapon";
         super.usage = "Attack with";
-        super.description = "A long-bladed knife - the machete. Deals -10 damage to foe";
-        super.damage = -10;
+        super.description = "A long-bladed knife - the machete. Deals an average of -10 damage to foe";
+        super.damage = -20;
+        super.rounds = Integer.MAX_VALUE;
     }
 
 }

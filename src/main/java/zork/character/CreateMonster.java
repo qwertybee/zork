@@ -23,7 +23,10 @@ public class CreateMonster {
             return mummy;
         }
         else if (generateMonster >= 0.5) {
-            return new Bat();
+            Bat bat = new Bat();
+            if (stone != null)
+                bat.setStone(stone);
+            return bat;
         }
         else {
             return null;

@@ -1,7 +1,9 @@
 package zork;
 
 import zork.character.Monster;
+import zork.character.Player;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class GameOutput {
@@ -10,24 +12,32 @@ public class GameOutput {
         System.out.println(message);
     }
 
+    public void printPlayer(Game game) {
+        Player player = game.getPlayer();
+        System.out.print("Player: ");
+        System.out.println(player.getHealthPoints()+" out of "+player.getMaxHealthPoints()+" HP.");
+    }
+
     public void printAvailableDirections(Game game) {
-        System.out.print("Available directions:");
+        System.out.print("Available directions: ");
         System.out.println(game.getCurrentArea().getNeighbors().keySet().stream().collect(Collectors.toList()));
     }
 
     public void printLocation(Game game) {
-        System.out.println("You are"+game.getCurrentArea().getDescription());
-        System.out.println();
+        System.out.println("YOU ARE"+game.getCurrentArea().getDescription().toUpperCase());
     }
 
     public void printInventory(Game game) {
-        System.out.print("Your inventory:");
+        System.out.print("Your inventory: ");
         System.out.println(game.getPlayer().getInventory().keySet().stream().collect(Collectors.toList()));
     }
 
     public void printRoomItems(Game game) {
-        System.out.print("Items in the area:");
-        System.out.println(game.getCurrentArea().getDroppedItems().keySet().stream().collect(Collectors.toList()));
+        List<String> items = game.getCurrentArea().getDroppedItems().keySet().stream().collect(Collectors.toList());
+        if (items.size()!=0) {
+            System.out.print("Items in the area: ");
+            System.out.println(game.getCurrentArea().getDroppedItems().keySet().stream().collect(Collectors.toList()));
+        }
     }
 
     public void printMonster(Game game) {
@@ -59,6 +69,7 @@ public class GameOutput {
         System.out.println();
         System.out.println();
         System.out.println("Type 'help' for available commands and its usages");
+        System.out.println();
     }
 
 }

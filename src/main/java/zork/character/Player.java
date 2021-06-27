@@ -24,12 +24,18 @@ public class Player {
         inventory.put("medkit", new Medkit());
     }
 
+    public void setHealthPoints(int healthPoints) {
+        if (healthPoints<=100) {
+            this.healthPoints = healthPoints;
+        }
+    }
+
     public int getHealthPoints() {
-        return healthPoints;
+        return this.healthPoints;
     }
 
     public int getMaxHealthPoints() {
-        return maxHealthPoints;
+        return this.maxHealthPoints;
     }
 
     public String getName() {

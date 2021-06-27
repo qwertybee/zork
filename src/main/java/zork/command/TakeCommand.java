@@ -23,9 +23,11 @@ public class TakeCommand implements Command {
         if (item != null) {
             game.getPlayer().getInventory().put(itemName, item);
             droppedItems.remove(itemName, item);
+            System.out.println();
             System.out.println(itemName+" taken.");
         }
         else {
+            System.out.println();
             System.out.println("No such item to be taken.");
         }
     }

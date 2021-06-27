@@ -26,10 +26,12 @@ public class Game {
         currentArea = createAreas.getAreaNeighbors().get("entrance");
         while (true) {
             output.printLocation(this);
-            output.printInventory(this);
-            output.printRoomItems(this);
-            output.printMonster(this);
             output.printAvailableDirections(this);
+            output.printInventory(this);
+            output.printPlayer(this);
+            output.printRoomItems(this);
+            System.out.println();
+            output.printMonster(this);
             System.out.print("> ");
             Scanner in = new Scanner(System.in);
             String s = in.nextLine();

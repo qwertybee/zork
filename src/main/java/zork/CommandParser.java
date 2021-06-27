@@ -12,15 +12,13 @@ public class CommandParser {
         String cleanedInput = stringInput.trim().toLowerCase();
         String cmd = matchInputCommand(cleanedInput);
         Command command = CommandFactory.get(cmd);
-        if (command.numArgs() > 0) {
+        if (command!= null && command.numArgs() > 0) {
             String argString = cleanedInput.substring(cmd.length()).trim();
             return Arrays.asList(cmd, argString);
         }
         else {
             return Arrays.asList(cmd);
         }
-        //do some checking for space later
-        //and handle invalid number of argument i.e. just exit
     }
 
     private String matchInputCommand(String input) {
@@ -30,15 +28,10 @@ public class CommandParser {
                 return command;
             }
         }
+        System.out.println();
+        System.out.println("Please enter valid command usage");
+        System.out.println("Type 'help' for available commands and its usage");
         return null;
     }
-
-    //    // sort command by length
-//    private List<String> allCommmandsSortedByLength = new ArrayList<>();
-//    {
-//        allCommmandsSortedByLength.addAll(CommandFactory.getAllCommands());
-//        System.out.println(allCommmandsSortedByLength);
-//        allCommmandsSortedByLength.sort((o1, o2) -> o2.length() - o1.length());
-//    }
 
 }

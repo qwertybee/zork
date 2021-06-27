@@ -2,6 +2,8 @@ package zork.character;
 
 import zork.item.Item;
 
+import java.util.Random;
+
 public class Monster {
 
     protected int maxHealthPoints;
@@ -9,6 +11,8 @@ public class Monster {
     protected int damage;
     protected String name;
     protected String description;
+    protected Item stone;
+    protected Random random = new Random();
 
     public void setHealthPoints(int healthPoints) {
         this.healthPoints = healthPoints;
@@ -22,8 +26,8 @@ public class Monster {
         return maxHealthPoints;
     }
 
-    public int getDamage() {
-        return damage;
+    public float getDamage() {
+        return damage*random.nextFloat();
     }
 
     public String getName() {
@@ -32,6 +36,14 @@ public class Monster {
 
     public String getDescription() {
         return description;
+    }
+
+    public Item getStone() {
+        return stone;
+    }
+
+    public void setStone(Item stone) {
+        this.stone = stone;
     }
 
 }

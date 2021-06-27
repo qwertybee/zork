@@ -14,7 +14,7 @@ public class GoCommand implements Command {
     @Override
     public void description() {
         System.out.println("Input usage: > go [insert direction]");
-        System.out.println("Description: Go towards a direction i.e. north, south, east, west");
+        System.out.println("Description: Go towards a direction i.e. north, south, east, west, up, down");
         System.out.println();
     }
 
@@ -38,7 +38,18 @@ public class GoCommand implements Command {
                 case "west":
                     game.setCurrentArea(newAreaReference);
                     break;
+                case "down":
+                    game.setCurrentArea(newAreaReference);
+                    break;
+                case "up":
+                    game.setCurrentArea(newAreaReference);
+                    break;
+
             }
+            // regenerate
+            int playerHealthPoints = game.getPlayer().getHealthPoints();
+            game.getPlayer().setHealthPoints(playerHealthPoints+5);
+            // spawn monster
             Monster randomMonster = game.getCreateMonster().createMonster(game);
             newAreaReference.spawnMonster(randomMonster);
         }
