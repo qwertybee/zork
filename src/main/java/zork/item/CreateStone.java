@@ -16,7 +16,7 @@ public class CreateStone implements Serializable {
         inventory = game.getPlayer().getInventory();
         if (!haveStones(inventory)) {
             double generateStone = RANDOM.nextFloat();
-            if (generateStone >=0.7) {
+            if (generateStone >=0.6) {
                 return stoneLeft;
             }
         }

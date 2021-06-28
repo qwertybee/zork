@@ -20,7 +20,8 @@ public class InsertCommand implements Command {
         Item item = game.getPlayer().getInventory().get(itemName);
         String areaName = game.getCurrentArea().getName();
         if (item!=null && item.getType().equals("stone") && areaName.equals("tomb")) {
-            game.getCurrentArea().getStonesOnWall().put(itemName, item);
+            game.getCurrentArea().getStonesOnWall().put(itemName, item); // put stone in wall
+            game.getPlayer().getInventory().remove(itemName, item); // remove stone from inventory
             System.out.println();
             System.out.println("You filled the "+itemName+" into the mural!");
             int stonesLeft = 3-game.getCurrentArea().getStonesOnWall().size();

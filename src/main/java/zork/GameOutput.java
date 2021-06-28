@@ -22,8 +22,8 @@ public class GameOutput implements Serializable {
     public void printEnding(Game game) {
         System.out.println();
         System.out.println("Congratulations you've completed the Valley of the Kings!");
-        int endTime = (int) (game.getFinishTime());
-        System.out.println("It took you "+endTime+" to finish the game.");
+        float endTime = (float) (game.getFinishTime()/60000);
+        System.out.println("It took you "+endTime+" minutes to complete the game.");
     }
 
     public void printAvailableDirections(Game game) {

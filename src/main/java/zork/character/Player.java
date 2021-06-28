@@ -25,8 +25,12 @@ public class Player implements Serializable {
         inventory.put("book", new Book());
     }
 
+    public int getDamage() {
+        return damage;
+    }
+
     public void setDamage(int newDamage) {
-        this.damage = newDamage;
+        this.damage = newDamage;// plus 5 in damage everytime monster's killed
     }
 
     public void setHealthPoints(int newHealthPoints) {

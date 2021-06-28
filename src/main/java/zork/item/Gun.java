@@ -6,7 +6,7 @@ public class Gun extends Weapon implements Serializable {
 
     public Gun() {
         super.name = "gun";
-        super.rounds = 7;
+        super.rounds = 100;
         super.damage = -40;
         super.usage = "attack with";
         super.type = "weapon";

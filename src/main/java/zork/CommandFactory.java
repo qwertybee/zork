@@ -21,7 +21,8 @@ public class CommandFactory implements Serializable {
             InspectCommand.class,
             LoadCommand.class,
             QuitCommand.class,
-            SaveCommand.class
+            SaveCommand.class,
+            InsertCommand.class
     );
 
     private static final Map<String, Command> COMMAND_MAP = new HashMap<>();

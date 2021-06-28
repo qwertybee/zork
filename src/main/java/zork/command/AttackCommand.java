@@ -24,7 +24,9 @@ public class AttackCommand implements Command {
         Player player = game.getPlayer();
         if (weapon != null && (weapon.getRounds() != 0)) {
             if (monster != null) {
-                int newMonsterHealthPoints = (int) (monster.getHealthPoints() + weapon.getDamage());
+                System.out.println(player.getDamage());
+                System.out.println("Monster current HP"+monster.getHealthPoints());
+                int newMonsterHealthPoints = (int) (monster.getHealthPoints()+weapon.getDamage()+player.getDamage());
                 weapon.decreaseRounds();
                 if (newMonsterHealthPoints <= 0) {
                     Item stone = game.getCurrentArea().getMonster().getStone();
@@ -37,14 +39,17 @@ public class AttackCommand implements Command {
                     System.out.println();
                     System.out.println("Monster killed.");
                     game.getCurrentArea().spawnMonster(null);
+                    int currentAttackPoints = game.getPlayer().getDamage();
+                    game.getPlayer().setDamage(currentAttackPoints-5);// attack points increase from killing monster
                 }
                 else {
                     monster.setHealthPoints(newMonsterHealthPoints);
                     int newPlayerHealthPoints = (int) (player.getHealthPoints() + monster.getDamage());
                     if (newPlayerHealthPoints <= 0) {
+                        System.out.println();
                         System.out.println("You were killed by the monster.");
                         System.out.println("GAME OVER");
-                        game.exit();
+                        game.run(); // back to welcome page
                         System.out.println();
                     }
                     else {
