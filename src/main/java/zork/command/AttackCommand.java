@@ -66,7 +66,7 @@ public class AttackCommand implements Command {
         }
         else if (weapon != null && weapon.getRounds() <= 0) {
             System.out.println();
-            System.out.println("Out of ammo. Attack with other weapon(s)");
+            System.out.println("Out of ammo. Attack with other weapon.");
         }
         else {
             System.out.println();

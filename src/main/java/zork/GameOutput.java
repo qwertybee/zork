@@ -23,7 +23,9 @@ public class GameOutput implements Serializable {
         System.out.println();
         System.out.println("Congratulations you've completed the Valley of the Kings!");
         float endTime = (float) (game.getFinishTime()/60000);
-        System.out.println("It took you "+endTime+" minutes to complete the game.");
+        System.out.println("It took you "+endTime+" minute(s) to complete the game.");
+        System.out.println();
+        game.exit();
     }
 
     public void printAvailableDirections(Game game) {
@@ -60,7 +62,7 @@ public class GameOutput implements Serializable {
     }
 
     public void printWelcome() {
-        System.out.println("##### Welcome to a text-based game - a spin-off of Zork! #####");
+        System.out.println("===== Welcome to a text-based game - a spin-off of Zork! =====");
         System.out.println();
         System.out.println();
         System.out.println("1938 A.D. Cairo, Egypt");
