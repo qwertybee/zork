@@ -6,6 +6,7 @@ import zork.character.CreateMonster;
 import zork.character.Monster;
 import zork.character.Mummy;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Random;
 

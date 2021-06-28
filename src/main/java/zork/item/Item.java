@@ -1,6 +1,8 @@
 package zork.item;
 
-public class Item {
+import java.io.Serializable;
+
+public class Item implements Serializable {
 
     public String getName() {
         return name;
@@ -16,6 +18,10 @@ public class Item {
 
     public String getDescription() {
         return description;
+    }
+
+    public boolean isItem(String nameItem) {
+        return this.name.equals(nameItem);
     }
 
     protected String name;

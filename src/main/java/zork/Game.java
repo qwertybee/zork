@@ -7,17 +7,18 @@ import zork.character.Player;
 import zork.command.Command;
 import zork.item.CreateStone;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Scanner;
 
-public class Game {
+public class Game implements Serializable {
 
     private final GameOutput output = new GameOutput();
     private final CommandParser commandParser = new CommandParser();
     private long startTime;
 
     private Area currentArea;
-    private final Player player = new Player();
+    private Player player = new Player();
     private final CreateAreas createAreas = new CreateAreas();
     private final CreateMonster createMonster  = new CreateMonster();
     private final CreateStone createStone = new CreateStone();
@@ -46,8 +47,12 @@ public class Game {
         }
     }
 
-    public long getStartTime() {
-        return startTime;
+    public long getFinishTime() {
+        return System.currentTimeMillis()-startTime;
+    }
+
+    public void setStartTime(long continuedTime) {
+        this.startTime = continuedTime;
     }
 
     public void setCurrentArea(Area newArea) {
@@ -60,6 +65,10 @@ public class Game {
 
     public Player getPlayer() {
         return player;
+    }
+
+    public void setPlayer(Player newPlayer) {
+        this.player = newPlayer;
     }
 
     public CreateAreas getCreateAreas() {

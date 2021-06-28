@@ -3,10 +3,11 @@ package zork;
 import zork.character.Monster;
 import zork.character.Player;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class GameOutput {
+public class GameOutput implements Serializable {
 
     public void println(String message) {
         System.out.println(message);
@@ -21,7 +22,7 @@ public class GameOutput {
     public void printEnding(Game game) {
         System.out.println();
         System.out.println("Congratulations you've completed the Valley of the Kings!");
-        int endTime = (int) (System.currentTimeMillis()-game.getStartTime());
+        int endTime = (int) (game.getFinishTime());
         System.out.println("It took you "+endTime+" to finish the game.");
     }
 
@@ -59,7 +60,7 @@ public class GameOutput {
     }
 
     public void printWelcome() {
-        System.out.println("Welcome to a text-based game - a spin-off of Zork!");
+        System.out.println("##### Welcome to a text-based game - a spin-off of Zork! #####");
         System.out.println();
         System.out.println();
         System.out.println("1938 A.D. Cairo, Egypt");
@@ -67,7 +68,7 @@ public class GameOutput {
         System.out.println();
         System.out.println("You fell under the rubble while trying to find the entrance into the pyramid");
         System.out.println("\"Ugh!\", you groaned - feeling your head throbbing you tried to recall what you were doing here");
-        System.out.println("\"Right...not only do I have find this treasure, I'm also stuck\"");
+        System.out.println("\"Right...what have I gotten myself into this time...\"");
         System.out.println("You slowly stand up and notice that you are in front of what appears to be two giant obelisks");
         System.out.println("As the light slowly poured in above the rubble you notice the scale of the underground");
         System.out.println("Awestruck at the sheer magnitude of the area...");

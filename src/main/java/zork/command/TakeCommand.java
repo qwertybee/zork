@@ -3,10 +3,11 @@ package zork.command;
 import zork.Game;
 import zork.item.Item;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 
-public class TakeCommand implements Command {
+public class TakeCommand implements Command, Serializable {
 
     @Override
     public void description() {

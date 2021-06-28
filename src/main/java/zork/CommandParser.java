@@ -2,9 +2,10 @@ package zork;
 
 import zork.command.Command;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class CommandParser {
+public class CommandParser implements Serializable {
 
     // "attack with weapon" -> ["attack with", "weapon"]
     // logic of splitting will be elsewhere

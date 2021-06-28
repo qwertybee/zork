@@ -2,9 +2,10 @@ package zork.area;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.Serializable;
 import java.util.*;
 
-public class CreateAreas {
+public class CreateAreas implements Serializable {
 
     private final String text = "C:/Users/Lily/Desktop/zorkmap1.txt";
     private final HashMap<String, Area> AREAS = new HashMap<>();

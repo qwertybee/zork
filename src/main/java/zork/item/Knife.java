@@ -1,12 +1,15 @@
 package zork.item;
 
-public class Knife extends Weapon{
+import java.io.Serializable;
+
+public class Knife extends Weapon implements Serializable {
 
     public Knife() {
-        super.name = "Knife";
-        super.type = "Weapon";
-        super.usage = "Attack with";
-        super.description = "A long-bladed knife - the machete. Deals an average of -10 damage to foe";
+        super.name = "knife";
+        super.type = "weapon";
+        super.usage = "attack with";
+        super.description = "A long-bladed knife - the machete.\n"
+                +"Deals an average of -10 damage to foe";
         super.damage = -20;
         super.rounds = Integer.MAX_VALUE;
     }

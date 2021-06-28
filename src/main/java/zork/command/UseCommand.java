@@ -3,9 +3,10 @@ package zork.command;
 import zork.Game;
 import zork.item.Item;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class UseCommand implements Command {
+public class UseCommand implements Command, Serializable {
 
     @Override
     public void description() {
@@ -16,13 +17,16 @@ public class UseCommand implements Command {
 
     @Override
     public void execute(Game game, List<String> args) {
-        String itemName = args.get(0).trim();
+        String itemName = args.get(0).trim().toLowerCase();
         Item item = game.getPlayer().getInventory().get(itemName);
-        if (item != null && item.getType().equals("Edible")) {
+        if (item != null && item.getType().equals("edible")) {
             game.getPlayer().setHealthPoints(100);
             game.getPlayer().getInventory().remove(itemName);
             System.out.println();
             System.out.println("Player now in full health!");
+        }
+        else if (item!=null && item.getType().equals("readable")) {
+            System.out.println(item.getDescription());
         }
         else {
             System.out.println();

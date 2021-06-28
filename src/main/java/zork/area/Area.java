@@ -3,10 +3,11 @@ package zork.area;
 import zork.character.Monster;
 import zork.item.Item;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Area {
+public class Area implements Serializable {
 
     private final String name;
     private final String description;

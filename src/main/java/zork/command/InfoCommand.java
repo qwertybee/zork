@@ -4,6 +4,7 @@ import zork.Game;
 import zork.area.Area;
 import zork.character.Player;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class InfoCommand implements Command {

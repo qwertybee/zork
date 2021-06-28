@@ -5,9 +5,10 @@ import zork.item.CreateStone;
 import zork.item.Item;
 import zork.item.RubyStone;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class CreateMonster {
+public class CreateMonster implements Serializable {
 
     private static final Random RANDOM = new Random();
 

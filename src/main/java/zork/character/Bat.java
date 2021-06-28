@@ -1,12 +1,14 @@
 package zork.character;
 
-public class Bat extends Monster {
+import java.io.Serializable;
+
+public class Bat extends Monster implements Serializable {
 
     public Bat() {
         super.maxHealthPoints = 20;
         super.healthPoints = 20;
         super.damage = -20;
-        super.name = "Bat";
+        super.name = "bat";
         super.description = "Here to suck your blood, vampiristic ol' bat";
     }
 

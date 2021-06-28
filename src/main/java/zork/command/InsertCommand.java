@@ -16,10 +16,10 @@ public class InsertCommand implements Command {
 
     @Override
     public void execute(Game game, List<String> args) {
-        String itemName = args.get(0).trim();
+        String itemName = args.get(0).trim().toLowerCase();
         Item item = game.getPlayer().getInventory().get(itemName);
         String areaName = game.getCurrentArea().getName();
-        if (item!=null && item.getType().equals("Stone") && areaName.equals("tomb")) {
+        if (item!=null && item.getType().equals("stone") && areaName.equals("tomb")) {
             game.getCurrentArea().getStonesOnWall().put(itemName, item);
             System.out.println();
             System.out.println("You filled the "+itemName+" into the mural!");

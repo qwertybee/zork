@@ -3,6 +3,7 @@ package zork.command;
 import zork.CommandFactory;
 import zork.Game;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class HelpCommand implements Command {

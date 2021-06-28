@@ -1,8 +1,9 @@
 package zork.item;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Weapon extends Item{
+public class Weapon extends Item implements Serializable {
 
     protected Random random = new Random();
     protected int damage;

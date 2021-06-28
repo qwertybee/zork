@@ -2,10 +2,11 @@ package zork.item;
 
 import zork.Game;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Random;
 
-public class CreateStone {
+public class CreateStone implements Serializable {
 
     private static final Random RANDOM = new Random();
     HashMap<String, Item> inventory;

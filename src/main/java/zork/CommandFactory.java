@@ -2,11 +2,12 @@ package zork;
 
 import zork.command.*;
 
+import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class CommandFactory {
+public class CommandFactory implements Serializable {
 
     private static final List<Class<? extends Command>> REGISTERED_COMMANDS = Arrays.asList(
             ExitCommand.class,
@@ -17,7 +18,10 @@ public class CommandFactory {
             InfoCommand.class,
             TakeCommand.class,
             UseCommand.class,
-            InspectCommand.class
+            InspectCommand.class,
+            LoadCommand.class,
+            QuitCommand.class,
+            SaveCommand.class
     );
 
     private static final Map<String, Command> COMMAND_MAP = new HashMap<>();
