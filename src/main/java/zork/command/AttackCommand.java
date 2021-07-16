@@ -19,13 +19,21 @@ public class AttackCommand implements Command {
     @Override
     public void execute(Game game, List<String> args) {
         String weaponKey = args.get(0).trim().toLowerCase();
-        Weapon weapon = (Weapon) game.getPlayer().getInventory().get(weaponKey);
+        Weapon weapon = null;
+        Item checkWeapon = game.getPlayer().getInventory().get(weaponKey);
+        if (checkWeapon != null && checkWeapon.getType().equals("weapon")) {
+            weapon = (Weapon) checkWeapon;
+        }
+        if (weapon == null){
+            System.out.println();
+            System.out.println("'attack with' what? Please insert available weapon in inventory.");
+            System.out.println("Type 'help' for commands and its usage.");
+            return;
+        }
         Monster monster = game.getCurrentArea().getMonster();
         Player player = game.getPlayer();
-        if (weapon != null && (weapon.getRounds() != 0)) {
+        if (weapon.getRounds() != 0) {
             if (monster != null) {
-                System.out.println(player.getDamage());
-                System.out.println("Monster current HP"+monster.getHealthPoints());
                 int newMonsterHealthPoints = (int) (monster.getHealthPoints()+weapon.getDamage()+player.getDamage());
                 weapon.decreaseRounds();
                 if (newMonsterHealthPoints <= 0) {
@@ -64,14 +72,9 @@ public class AttackCommand implements Command {
                 System.out.println("No monster in the area.");
             }
         }
-        else if (weapon != null && weapon.getRounds() <= 0) {
+        else if (weapon.getRounds() <= 0) {
             System.out.println();
             System.out.println("Out of ammo. Attack with other weapon.");
-        }
-        else {
-            System.out.println();
-            System.out.println("'attack with' what? Please insert available weapon in inventory.");
-            System.out.println("Type 'help' for commands and its usage.");
         }
     }
 
