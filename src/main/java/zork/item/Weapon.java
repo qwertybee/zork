@@ -7,7 +7,7 @@ public class Weapon extends Item implements Serializable {
 
     protected Random random = new Random();
     protected int damage;
-    protected Integer rounds;
+    protected int rounds;
 
     public float getDamage() {
         return damage*random.nextFloat();

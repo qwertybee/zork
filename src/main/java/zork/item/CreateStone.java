@@ -16,23 +16,23 @@ public class CreateStone implements Serializable {
         inventory = game.getPlayer().getInventory();
         if (!haveStones(inventory)) {
             double generateStone = RANDOM.nextFloat();
-            if (generateStone >=0.6) {
+            if (generateStone >= 0.5) {
                 return stoneLeft;
             }
         }
         return null;
     }
 
-    public boolean haveStones(HashMap<String, Item> inventory) {
-        if (inventory.get("ruby stone") == null) {
+    public boolean haveStones(HashMap<String, Item> storage) {
+        if (storage.get("ruby stone") == null) {
             stoneLeft = new RubyStone();
             return false;
         }
-        if (inventory.get("sapphire stone") == null) {
+        if (storage.get("sapphire stone") == null) {
             stoneLeft = new SapphireStone();
             return false;
         }
-        if (inventory.get("emerald stone") == null) {
+        if (storage.get("emerald stone") == null) {
             stoneLeft = new EmeraldStone();
             return false;
         }

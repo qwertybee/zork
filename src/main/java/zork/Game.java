@@ -25,7 +25,7 @@ public class Game implements Serializable {
 
     public void run() {
         output.printWelcome();
-        currentArea = createAreas.getAreaNeighbors().get("entrance");
+        currentArea = createAreas.getAreas().get("entrance");
         startTime = System.currentTimeMillis();
         while (true) {
             output.printLocation(this);

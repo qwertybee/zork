@@ -2,13 +2,9 @@ package zork.command;
 
 import zork.Game;
 import zork.area.Area;
-import zork.character.CreateMonster;
 import zork.character.Monster;
-import zork.character.Mummy;
 
-import java.io.Serializable;
 import java.util.List;
-import java.util.Random;
 
 public class GoCommand implements Command {
 
@@ -25,7 +21,7 @@ public class GoCommand implements Command {
         boolean containDirection = game.getCurrentArea().hasNeighbor(direction);
         if (containDirection) {
             String newArea = game.getCurrentArea().getNeighbors().get(direction);
-            Area newAreaReference = game.getCreateAreas().getAreaNeighbors().get(newArea);
+            Area newAreaReference = game.getCreateAreas().getAreas().get(newArea);
             switch (direction) {
                 case "north":
                     game.setCurrentArea(newAreaReference);

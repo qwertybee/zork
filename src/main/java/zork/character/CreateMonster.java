@@ -17,13 +17,13 @@ public class CreateMonster implements Serializable {
         double generateMonster = RANDOM.nextFloat();
         Item stone = game.getCreateStone().createStone(game);
 
-        if (generateMonster >= 0.6) { // prob of spawning when going to new room
+        if (generateMonster >= 0.3) { // prob of spawning when going to new room
             Mummy mummy = new Mummy();
             if (stone != null)
                 mummy.setStone(stone);
             return mummy;
         }
-        else if (generateMonster >= 0.5) {
+        else if (generateMonster >= 0.4) {
             Bat bat = new Bat();
             if (stone != null)
                 bat.setStone(stone);

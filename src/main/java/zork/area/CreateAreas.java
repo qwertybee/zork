@@ -34,7 +34,7 @@ public class CreateAreas implements Serializable {
         }
     }
 
-    public HashMap<String, Area> getAreaNeighbors() {
+    public HashMap<String, Area> getAreas() {
         return AREAS;
     }
 
